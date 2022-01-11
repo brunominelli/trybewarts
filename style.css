@@ -25,6 +25,16 @@ main {
   width: 675px;
 }
 
+.row {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.input-size {
+    flex: 1;
+}
+
 #trybewarts-forms-logo {
-    height: 500px;
+  height: 500px;
 }

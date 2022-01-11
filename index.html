@@ -22,15 +22,23 @@
 
     <main>
         <form action="" id="evaluation-form">
-            <input type="text" id="input-name" placeholder="Nome" />
-            <input type="text" id="input-lastname" placeholder="Sobrenome" />
-            <input type="email" id="input-email" placeholder="Email" />
-            <select id="house"></select>
+            <div class="row">
+                <input class="input-size" type="text" id="input-name" placeholder="Nome" />
+                <input class="input-size" type="text" id="input-lastname" placeholder="Sobrenome" />
+            </div>
+            <div class="row">
+                <input class="input-size" type="email" id="input-email" placeholder="Email" />
 
+                <div class="input-size">
+                    <label for="house">Casa:</label>
+                    <select id="house"></select>
+                </div>
+            </div>
+            <hr />
             <label id="label-family">Qual sua família?</label>
-            <input type="radio" name="family" value="Frontend">
-            <input type="radio" name="family" value="Backend">
-            <input type="radio" name="family" value="FullStack">
+            <input type="radio" name="family" value="Frontend" />Família Frontend
+            <input type="radio" name="family" value="Backend" /> Família Backend
+            <input type="radio" name="family" value="FullStack" /> Família FullStack
         </form>
         <img src="images/trybewarts-colored.svg" alt="" id="trybewarts-forms-logo">
     </main>
