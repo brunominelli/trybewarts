@@ -28,7 +28,18 @@ main {
 .row {
   display: flex;
   justify-content: space-around;
-  align-items: center;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.block {
+  width: 45%;
+  margin: auto;
+  align-items: flex-start;
 }
 
 .input-size {
