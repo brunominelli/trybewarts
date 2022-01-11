@@ -19,18 +19,20 @@
   </div>
   <main>
     <form action="" id="evaluation-form">
-      <div class="row">
-        <input class="input-size" type="text" id="input-name" placeholder="Nome" />
-        <input class="input-size" type="text" id="input-lastname" placeholder="Sobrenome" />
-      </div>
-      <div class="row">
-        <input class="input-size" type="email" id="input-email" placeholder="Email" />
-
-        <div class="input-size">
-          <label for="house">Casa:</label>
-          <select id="house"></select>
+      <section id="basic-information">
+        <div class="row">
+          <input class="input-size" type="text" id="input-name" placeholder="Nome" />
+          <input class="input-size" type="text" id="input-lastname" placeholder="Sobrenome" />
         </div>
-      </div>
+        <div class="row">
+          <input class="input-size" type="email" id="input-email" placeholder="Email" />
+
+          <div class="input-house">
+            <label for="house">Casa:</label>
+            <select id="house"></select>
+          </div>
+        </div>
+    </section>
       <hr />
       <div class="row">
         <div class="col block">
@@ -79,7 +81,7 @@
     </form>
     <img src="images/trybewarts-colored.svg" alt="" id="trybewarts-forms-logo">
   </main>
-  <footer>Direitos reservados à Trybewarts©</footer>
+  <footer class="footer">Direitos reservados à Trybewarts©</footer>
   <script src="script.js"></script>
 </body>
 </html>
