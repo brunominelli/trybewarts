@@ -49,6 +49,10 @@ main {
   margin: 0.5rem;
 }
 
+.textarea p {
+  display: inline;
+}
+
 #input-name , #input-lastname , #input-email , #input-house , select {
   margin: 0.5rem;
 }
