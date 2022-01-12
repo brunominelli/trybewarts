@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Inknut Antiqua', serif;
+  font-family: Inknut Antiqua, serif;
 }
 
 .header {
@@ -61,7 +61,7 @@ main {
   width: 100px;
 }
 
-#input-email , #input-password , #input-name , #input-lastname , #input-email , #input-house, #house {
+#input-email , #input-password , #input-name , #input-lastname , #input-house , #house {
   width: 320px;
 }
 
