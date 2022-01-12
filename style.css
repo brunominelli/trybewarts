@@ -49,22 +49,20 @@ main {
   margin: 0.5rem;
 }
 
+#textarea {
+  height: 100px;
+}
+
 .textarea p {
   display: inline;
 }
 
-#input-name , #input-lastname , #input-email , #input-house , select {
-  margin: 0.5rem;
+#login {
+  width: 100px;
 }
 
-#input-name , #input-lastname , #input-email , #input-house {
-  padding: 1rem;
-  width: 250px;
-}
-
-select {
-  width: 210px;
-  padding: 1rem;
+#input-email , #input-password , #input-name , #input-lastname , #input-email , #input-house, #house {
+  width: 320px;
 }
 
 .row {

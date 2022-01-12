@@ -11,26 +11,28 @@
   <title>Trybewarts</title>
 </head>
 <body>
-  <div class="header">
+  <header class="header">
     <img src="images/trybewarts-header-logo.svg" alt="trybewarts logo" class="trybewarts-header-logo" />
     <h1 id="trybewarts-header-title">Trybewarts</h1>
     <form action="#" class="trybewarts-login">
-      <input type="email" name="email" placeholder="Email">
-      <input type="password" name="password" placeholder="Senha">
-      <button id="login">Entrar</button>
+      <fieldset class="section-form">
+        <input type="email" id="inpu-email" name="email" placeholder="Email">
+        <input type="password" id="inpu-password" name="password" placeholder="Senha">
+        <button id="login">Entrar</button>
+      </fieldset>
     </form>
-  </div>
+  </header>
   <main>
     <form action="" id="evaluation-form">
       <fieldset class="section-form">
         <div class="row">
-          <input class="input-size" type="text" id="input-name" placeholder="Nome" />
-          <input class="input-size" type="text" id="input-lastname" placeholder="Sobrenome" />
+          <input type="text" id="input-name" placeholder="Nome" />
+          <input type="text" id="input-lastname" placeholder="Sobrenome" />
         </div>
         <div class="row">
-          <input class="input-size" type="email" id="input-email" placeholder="Email" />
+          <input type="email" id="input-email" placeholder="Email" />
 
-          <div class="input-house">
+          <div class="row" id="input-house">
             <label class="label-form" for="house">Casa:</label>
             <select id="house"></select>
           </div>
@@ -100,7 +102,7 @@
           Deixe seu comentário:
           <p id="counter"></p>
         </label>
-        <textarea maxlength="500" id="textarea" cols="30" rows="10"></textarea>
+        <textarea maxlength="500" id="textarea" cols="30"></textarea>
         
         <div class="agreement-container">
           <label class="label-form" for="agreement" id="label-infos">Você concorda com o uso das informações acima?</label>
