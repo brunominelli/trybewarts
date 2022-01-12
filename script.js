@@ -54,20 +54,12 @@ function isAgreed() {
 agreement.addEventListener('change', isAgreed);
 
 /* Counter */
-let counter = 500;
 const idCounter = document.getElementById('counter');
 const textarea = document.getElementById('textarea');
-idCounter.innerText = counter;
+idCounter.innerText = 500;
 
 textarea.addEventListener('input', () => {
-  const characters = textarea.value.length;
-  if (characters < counter) {
-    counter -= 1;
-    idCounter.innerText = counter;
-  } else {
-    counter += 1;
-    idCounter.innerText = counter;
-  }
+  idCounter.innerText = 500 - textarea.value.length;
 });
 
 window.onload = () => {
