@@ -58,9 +58,66 @@ const idCounter = document.getElementById('counter');
 const textarea = document.getElementById('textarea');
 idCounter.innerText = 500;
 
-textarea.addEventListener('input', () => {
-  idCounter.innerText = 500 - textarea.value.length;
+textarea.addEventListener('input', () => { idCounter.innerText = 500 - textarea.value.length; });
+
+/* Form Default */
+const subjects = document.getElementsByClassName('subject');
+
+function isChecked() {
+  const checked = [];
+  for (let index = 0; index < subjects.length; index += 1) {
+    if (subjects[index].checked) {
+      checked.push(subjects[index].value);
+    }
+  }
+  return checked;
+}
+
+function validateCheck(array, input) {
+  const radioCondition = (input.type === 'radio' && input.checked);
+  if (radioCondition) array.push(input.value);
+}
+
+function validateText(array, input) {
+  if (input.type === 'text' || input.type === 'email') array.push(input.value);
+}
+
+function getInputValue() {
+  const inputs = document.querySelectorAll('#evaluation-form input');
+  const inputValue = [];
+  for (let index = 0; index < inputs.length; index += 1) {
+    const input = inputs[index];
+    validateCheck(inputValue, input);
+    validateText(inputValue, input);
+    if (index === 3) inputValue.push(select.value);
+  }
+  inputValue.push(textarea.value);
+  return inputValue;
+}
+
+function printFormResult() {
+  const form = document.getElementById('evaluation-form');
+  const elements = getInputValue();
+  form.innerHTML = `
+    <p>Nome: ${elements[0]} ${elements[1]}</p>
+    <p>Email: ${elements[2]}</p>
+    <p>Casa: ${elements[3]}</p>
+    <p>Família: ${elements[4]}</p>
+    <p>Matérias: ${isChecked().join(', ')}</p>
+    <p>Avaliação: ${elements[5]}</p>
+    <p>Observações: ${elements[6]}</p>
+  `;
+}
+
+buttonSubmit.addEventListener('click', (event) => {
+  event.preventDefault();
+  getInputValue();
+  printFormResult();
 });
+
+for (let index = 0; index < subjects.length; index += 1) {
+  subjects[index].addEventListener('click', isChecked);
+}
 
 window.onload = () => {
   setHouses(arrayHouse, arrayHouseId);
