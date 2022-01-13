@@ -60,7 +60,76 @@ idCounter.innerText = 500;
 
 textarea.addEventListener('input', () => { idCounter.innerText = 500 - textarea.value.length; });
 
+/* Form Default */
+const subjects = document.getElementsByClassName('subject');
+
+/* a Função: isChecked
+-- Verifica se o checkbox do formulário está selecionado. Se sim, o adiciona no array "checked" */
+function isChecked() {
+  const checked = [];
+  for (let index = 0; index < subjects.length; index += 1) {
+    if (subjects[index].checked) {
+      checked.push(subjects[index].value);
+    }
+  }
+  return checked;
+}
+
+/* a Função: validateCheck
+-- Verifica se o tipo do input é igual a 'radio'. Se sim,
+-- Verifica se o input está selecionado. Se sim, o adiciona no array */
+function validateCheck(array, input) {
+  const radioCondition = (input.type === 'radio' && input.checked);
+  if (radioCondition) array.push(input.value);
+}
+
+/* a Função: validateCheck
+-- Verifica se o tipo do input é igual a 'text' ou 'email'. Se sim, o adiciona no array */
+function validateText(array, input) {
+  if (input.type === 'text' || input.type === 'email') array.push(input.value);
+}
+
+/* a Função: getInputValue
+-- Recebe os elementos do Id "evaluation-form" e os adiciona no array "inputValue" */
+function getInputValue() {
+  const inputs = document.querySelectorAll('#evaluation-form input');
+  const inputValue = [];
+  for (let index = 0; index < inputs.length; index += 1) {
+    const input = inputs[index];
+    validateCheck(inputValue, input);
+    validateText(inputValue, input);
+    if (index === 3) inputValue.push(select.value);
+  }
+  inputValue.push(textarea.value);
+  return inputValue;
+}
+
+/* a Função: printFormResult
+-- Limpa o formulário('evaluation-form') e imprime todos campos preechidos */
+function printFormResult() {
+  const form = document.getElementById('evaluation-form');
+  const elements = getInputValue();
+  form.innerHTML = `
+    <p>Nome: ${elements[0]} ${elements[1]}</p>
+    <p>Email: ${elements[2]}</p>
+    <p>Casa: ${elements[3]}</p>
+    <p>Família: ${elements[4]}</p>
+    <p>Matérias: ${isChecked().join(', ')}</p>
+    <p>Avaliação: ${elements[5]}</p>
+    <p>Observações: ${elements[6]}</p>
+  `;
+}
+
+buttonSubmit.addEventListener('click', (event) => {
+  event.preventDefault();
+  getInputValue();
+  printFormResult();
+});
+
 window.onload = () => {
   setHouses(arrayHouse, arrayHouseId);
   setInputRadio();
+  for (let index = 0; index < subjects.length; index += 1) {
+    subjects[index].addEventListener('click', isChecked);
+  }
 };
