@@ -58,9 +58,7 @@ const idCounter = document.getElementById('counter');
 const textarea = document.getElementById('textarea');
 idCounter.innerText = 500;
 
-textarea.addEventListener('input', () => {
-  idCounter.innerText = 500 - textarea.value.length;
-});
+textarea.addEventListener('input', () => { idCounter.innerText = 500 - textarea.value.length; });
 
 window.onload = () => {
   setHouses(arrayHouse, arrayHouseId);
